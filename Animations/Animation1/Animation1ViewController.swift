@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class Animation1ViewController: UIViewController {
 
     @IBOutlet private weak var animationView1: UIView! {
         didSet {
@@ -94,8 +94,8 @@ final class ViewController: UIViewController {
         if isShowed {
             //制約を切り替える
             // 制約falseを先に設定しないと制約エラーが起きる
-            self.redDismissingConst.isActive = false
-            self.redShowingConst.isActive = true
+            redDismissingConst.isActive = false
+            redShowingConst.isActive = true
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
             }) { _ in
@@ -113,14 +113,14 @@ final class ViewController: UIViewController {
             }
         } else {
             //制約を切り替える
-            self.redShowingConst.isActive = false
-            self.redDismissingConst.isActive = true
+            redShowingConst.isActive = false
+            redDismissingConst.isActive = true
 
-            self.yellowShowingConst.isActive = false
-            self.yellowDismissingConst.isActive = true
+            yellowShowingConst.isActive = false
+            yellowDismissingConst.isActive = true
 
-            self.blueShowingConst.isActive = false
-            self.blueDismissingConst.isActive = true
+            blueShowingConst.isActive = false
+            blueDismissingConst.isActive = true
 
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
@@ -128,3 +128,8 @@ final class ViewController: UIViewController {
         }
     }
 }
+
+
+
+// 制約の切り替えは不可が大きい
+// Animation2VCで行っているconstantの変更の方が不可が小さいが、固定値を設定する必要がある
